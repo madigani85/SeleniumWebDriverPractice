@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pageObjectModel.landingPage;
@@ -16,8 +17,19 @@ import pageObjectModel.loginPage;
 
 public class firstTestCase {
 
+	
+	
+	
 	WebDriver driver = new ChromeDriver();
 
+	@BeforeTest
+	public void setUp() {
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		String pageTitle = driver.getTitle();
+		System.out.println("Title of the page is " + pageTitle);
+	}
+	
 	/*
 	 * @Test(priority=3)
 	 * 
@@ -37,10 +49,12 @@ public class firstTestCase {
 	 */
 	@Test
 	public void login() throws InterruptedException {
-
+/*
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		String pageTitle = driver.getTitle();
 		System.out.println("Title of the page is " + pageTitle);
+		
+		*/
 
 		loginPage lp = new loginPage(driver);
 
