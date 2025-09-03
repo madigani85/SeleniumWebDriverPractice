@@ -20,10 +20,11 @@ public class firstTestCase {
 	
 	
 	
-	WebDriver driver = new ChromeDriver();
+	WebDriver driver;
 
 	@BeforeTest
 	public void setUp() {
+		driver= new ChromeDriver();
 		
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		String pageTitle = driver.getTitle();
